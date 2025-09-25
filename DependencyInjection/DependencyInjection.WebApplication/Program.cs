@@ -10,10 +10,15 @@ var builder = WebApplication.CreateBuilder(args);// Bu yapý bize service collect
 
 builder.Services.AddControllers(); // 1) Ben controller yapýsý kullanacaðým bunu ihtiyaç duyarsan bu yapýya göre instance üret demek(daha instance üretilmedi sadece not olarak ekledi.)
 
+builder.Services.AddTransient<Product>();
 builder.Services.AddTransient<Cekic>(); // dependency injection yapýlacak classýn ctor'unda istenmesi lazým bunun için.
 builder.Services.AddTransient<Civi>();  // dependency injection yapýlacak classýn ctor'unda istenmesi lazým bunun için.
 builder.Services.AddTransient<Builder>();  // dependency injection yapýlacak classýn ctor'unda istenmesi lazým bunun için.
 
+
+//AddTransient : Her istekte ayrý instance üretir. Her ihtiyaç duyulduðunda yeniden üretir.
+//AddScoped : Ýstek baþýndan istek sonuna kadar tek bir instance kullanýr.
+//AddSingleton : Ýlk çaðýrýldýðýnda instance üretilir daha sonrasýnda uygulama sonlanana kadar ayný instance kullanýr.
 
 
 var app = builder.Build();  // Service Collection'ý => Service Provider'a dönüþtürüyor.
@@ -89,5 +94,13 @@ public class Builder
         _civi.Use();
 
         Console.WriteLine("Ev inþa edildi");
+    }
+}
+public class Product
+{
+    public Product(Civi civi)
+    {
+        civi.Num += 7;
+        Console.WriteLine("Çivi num: {0}", civi.Num);
     }
 }
