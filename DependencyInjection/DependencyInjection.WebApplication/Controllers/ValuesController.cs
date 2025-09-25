@@ -7,9 +7,11 @@ namespace DependencyInjection.WebApplication.Controllers;
 public class ValuesController : ControllerBase
 {
     private readonly Builder _builder;
-    public ValuesController(Builder builder)
+    private readonly Product _product;
+    public ValuesController(Builder builder, Product product)
     {
         _builder = builder;
+        _product = product;
     }
 
     [HttpGet]
