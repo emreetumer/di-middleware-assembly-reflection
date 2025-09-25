@@ -16,6 +16,7 @@ builder.Services.AddRateLimiter(conf =>
     });
 });
 builder.Services.AddTransient<ExampleMiddleware>(); // custom middleware baþka sýnýftan çaðýrmak için yazýyoruz aþaðýya da ekleyeceðiz.
+builder.Services.AddExceptionHandler<ExceptionHandler>().AddProblemDetails(); //ExceptionHandler için eklenen yapý. aþaðýdada yapacaðýz.
 
 
 var app = builder.Build();
@@ -32,6 +33,13 @@ app.UseAuthentication(); //giriþ kontrolü
 app.UseAuthorization(); //yetki kontrolü
 
 app.UseExceptionHandler();
+
+app.UseMiddleware<ExampleMiddleware>(); // custom middlewareyi baþka sýnýftan çaðýrmak için yazdýk.
+// custom middleware buraya yazýlýr.
+//app.Use(async (context, next) =>
+//{
+//    await next(context);
+//});
 
 app.MapControllers();
 app.Run();
