@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.RateLimiting;
+using Middleware.WebAPI;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,8 +15,7 @@ builder.Services.AddRateLimiter(conf =>
         opt.Window = TimeSpan.FromSeconds(1);
     });
 });
-
-
+builder.Services.AddTransient<ExampleMiddleware>(); // custom middleware baþka sýnýftan çaðýrmak için yazýyoruz aþaðýya da ekleyeceðiz.
 
 
 var app = builder.Build();
@@ -31,6 +31,7 @@ app.UseRateLimiter();
 app.UseAuthentication(); //giriþ kontrolü
 app.UseAuthorization(); //yetki kontrolü
 
+app.UseExceptionHandler();
 
 app.MapControllers();
 app.Run();
