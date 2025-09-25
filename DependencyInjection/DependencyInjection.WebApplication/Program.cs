@@ -21,9 +21,14 @@ var app = builder.Build();  // Service Collection'ý => Service Provider'a dönüþt
 
 // 2. Parça bu container'in execute esnasýnda o class istenirse instance türeten mekanizmasý
 
-app.MapGet("/test", (Builder builder) =>
+app.MapGet("/test", (Builder b /*ctor gibi çalýþýr*/) =>
 {
-    builder.BuildHouse();
+    // CTOR' DA PARAMETRE VERMEDEN BU AÞAÐIDAKÝ KODLARI YAZARSAK SORUN OLMAZ AMA CTOR'a BUILDERI VERDÝÐÝMÝZDE BÝZÝM YERÝMÝZE SERVICE PROVIDER SAÐLAR AÞAÐIDAKÝ 3 SATIR KODU.
+    //var cekic = app.Services.GetService<Cekic>();
+    //var civi = app.Services.GetService<Civi>();
+    //var b = new Builder(cekic, civi);
+
+    b.BuildHouse();
     return Results.Ok();
 });
 
