@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);// Bu yapý bize service collect
 
 // 1. Parça ihtiyaç duyulduðunda hangi classýn nereden ve nasýl instance türetileceðini bilgi olarak saklayan bir registration yapýsý / container
 
+builder.Services.AddControllers(); // 1) Ben controller yapýsý kullanacaðým bunu ihtiyaç duyarsan bu yapýya göre instance üret demek(daha instance üretilmedi sadece not olarak ekledi.)
 
 builder.Services.AddTransient<Cekic>(); // dependency injection yapýlacak classýn ctor'unda istenmesi lazým bunun için.
 builder.Services.AddTransient<Civi>();  // dependency injection yapýlacak classýn ctor'unda istenmesi lazým bunun için.
@@ -32,6 +33,7 @@ app.MapGet("/test", (Builder b /*ctor gibi çalýþýr*/) =>
     return Results.Ok();
 });
 
+app.MapControllers(); // 1) classý newlemesi gerektiðini burada anlýyor.
 
 
 app.Run();
