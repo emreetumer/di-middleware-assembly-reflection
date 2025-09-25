@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection.Domain"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection.Application", "DependencyInjection.Application\DependencyInjection.Application.csproj", "{87983341-391B-4669-B73F-9EF6C5E75532}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.WebAPI", "..\Middleware\Middleware.WebAPI\Middleware.WebAPI.csproj", "{646EF1C0-3836-B8D4-72D0-CF4094FC3A49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{87983341-391B-4669-B73F-9EF6C5E75532}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87983341-391B-4669-B73F-9EF6C5E75532}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87983341-391B-4669-B73F-9EF6C5E75532}.Release|Any CPU.Build.0 = Release|Any CPU
+		{646EF1C0-3836-B8D4-72D0-CF4094FC3A49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{646EF1C0-3836-B8D4-72D0-CF4094FC3A49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{646EF1C0-3836-B8D4-72D0-CF4094FC3A49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{646EF1C0-3836-B8D4-72D0-CF4094FC3A49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
